@@ -113,8 +113,7 @@ class TreeViewStateHelper<Data> {
       if (node.isRoot || node.parent?.isRoot == true) {
         parentNode = node.root as ITreeNode<Data>;
         parentIndex = animatedListStateController.list
-            .indexWhere((element) => element.isRoot || element.parent?.isRoot == true); // -1 if showRootNode is false
-;
+            .indexWhere((element) => element.key == parentNode.key); // -1 if showRootNode is false
       } else {
         parentIndex = animatedListStateController.list
             .indexWhere((element) => element.key == node.parent?.key);
